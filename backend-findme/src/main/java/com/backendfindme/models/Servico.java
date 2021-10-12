@@ -31,11 +31,11 @@ public class Servico {
     @Enumerated(EnumType.STRING)
     private ListaCategoria categoria;
 
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
-
+    
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_cidade")
@@ -45,6 +45,7 @@ public class Servico {
     @ManyToOne
     @JoinColumn(name = "id_estado")
     private Estado estado = null;
+
 
 
 

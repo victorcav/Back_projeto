@@ -10,7 +10,9 @@ import com.backendfindme.services.exceptions.DatabaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -61,6 +63,7 @@ public class UsuarioService {
         usuarioAtualizado.setTelefone(usuario.getTelefone());
     }
 
+/*
     // Deletar Usuario:
     public void delete(Long id){
         try{
@@ -70,6 +73,21 @@ public class UsuarioService {
         } catch (DataIntegrityViolationException e){
             throw new DatabaseException(e.getMessage());
         }
+    }
+
+ */
+
+    // Deletar Usuario:
+    @Transactional
+    public ResponseEntity<?> delete(@PathVariable Long id){
+        try{
+            usuarioRepository.alteraSituacao(id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ControllerNotFoundException(id);
+        } catch (DataIntegrityViolationException e){
+            throw new DatabaseException(e.getMessage());
+        }
+        return ResponseEntity.ok().build();
     }
 
 

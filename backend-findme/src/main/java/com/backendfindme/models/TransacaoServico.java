@@ -40,11 +40,9 @@ public class TransacaoServico {
     private double valor;
 
     @Column
-    private int qtd_pontos;
-
-    @Column
     private boolean utiliza_pontos;
 
     @Column
-    private int pontuacao;
+    private int qtd_pontos;
+
 }
