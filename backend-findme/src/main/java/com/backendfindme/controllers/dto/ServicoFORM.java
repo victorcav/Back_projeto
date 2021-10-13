@@ -7,15 +7,35 @@ import com.backendfindme.repositories.ServicoRepository;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 @Getter
 @Setter
 public class ServicoFORM {
 
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private String titulo;
+
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private String descricao;
+
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private ListaCategoria categoria;
-    private Usuario usuario;
+
+    @NotNull
+    @NotEmpty
+    @NotBlank
     private double valor;
+
+    private Usuario usuario;
 
     public Servico converter(ServicoRepository servicoRepository){
         return new Servico(titulo, descricao, categoria, usuario, valor);

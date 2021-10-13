@@ -35,19 +35,6 @@ public class Servico {
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
-    
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "id_cidade")
-    private Cidade cidade = null;
-
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "id_estado")
-    private Estado estado = null;
-
-
-
 
     @Column
     private double valor;
@@ -55,7 +42,6 @@ public class Servico {
     @Column
     private boolean situacao = true;
 
-    /*
 
     @OneToMany(mappedBy = "servico")
     private List<TransacaoServico> transacaoServico= new ArrayList<>();
@@ -63,7 +49,7 @@ public class Servico {
     @OneToMany(mappedBy = "usuario_prestador")
     private List<TransacaoServico> transacaoServicoPrestados = new ArrayList<>();
 
-     */
+
 
     public Servico(String titulo, String descricao, ListaCategoria categoria,Usuario usuario, double valor) {
         this.titulo = titulo;

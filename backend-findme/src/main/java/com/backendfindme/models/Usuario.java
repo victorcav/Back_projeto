@@ -62,10 +62,10 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario")
     private List<Servico> servico = new ArrayList<>();
 
-    /*
-        @OneToMany(mappedBy = "usuario_contratante")
+
+    @OneToMany(mappedBy = "usuario_contratante")
     private List<TransacaoServico> transacaoServicoContratados = new ArrayList<>();
-     */
+
 
 
     public Usuario(String nome, String email, String senha, String cpf_cnpj, String telefone, String cep,

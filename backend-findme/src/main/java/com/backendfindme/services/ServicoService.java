@@ -42,7 +42,7 @@ public class ServicoService {
         return servicoRepository.save(servico);
     }
 
-    // Atualizaçao do Usuario:
+    // Atualizaçao do Servico:
     public Servico atualizar(Long id, Servico servico){
         try {
             Servico servicoAtualizado = servicoRepository.getOne(id);
@@ -52,6 +52,16 @@ public class ServicoService {
             throw new ControllerNotFoundException(id);
         }
     }
+
+/*
+
+    // Filtar Servicos por Categoria:
+    public List<ServicoDTO> listarPorCategoria(String categoria){
+        List<Servico> servicoList = servicoRepository.filtarPorCategoria(categoria);
+        return ServicoDTO.converter(servicoList);
+    }
+
+ */
 
     // Funcao utilizada na atualizacao:
     private void updateData(Servico servicoAtualizado, Servico servico) {

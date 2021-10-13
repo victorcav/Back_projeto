@@ -15,8 +15,6 @@ public class ServicoDTO {
     private String descricao;
     private Usuario usuario;
     private ListaCategoria categoria;
-    private Cidade cidade;
-    private Estado estado;
     private double valor;
 
     public ServicoDTO(Servico servico) {
@@ -24,8 +22,6 @@ public class ServicoDTO {
         this.descricao = servico.getDescricao();
         this.usuario = servico.getUsuario();
         this.categoria = servico.getCategoria();
-        this.cidade = servico.getCidade();
-        this.estado = servico.getEstado();
         this.valor = servico.getValor();
     }
 
