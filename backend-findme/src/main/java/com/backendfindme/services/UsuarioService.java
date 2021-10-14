@@ -2,7 +2,6 @@ package com.backendfindme.services;
 
 import com.backendfindme.controllers.dto.UsuarioDTO;
 import com.backendfindme.controllers.dto.UsuarioFORM;
-import com.backendfindme.controllers.dto.UsuarioServicosDTO;
 import com.backendfindme.models.Usuario;
 import com.backendfindme.repositories.UsuarioRepository;
 import com.backendfindme.services.exceptions.ControllerNotFoundException;
@@ -61,6 +60,11 @@ public class UsuarioService {
         usuarioAtualizado.setNome(usuario.getNome());
         usuarioAtualizado.setSenha(usuario.getSenha());
         usuarioAtualizado.setTelefone(usuario.getTelefone());
+        usuarioAtualizado.setCep(usuario.getCep());
+        usuarioAtualizado.setEndereco(usuario.getEndereco());
+        usuarioAtualizado.setNumero(usuario.getNumero());
+        usuarioAtualizado.setCidade(usuario.getCidade());
+        usuarioAtualizado.setSigla_estado(usuario.getSigla_estado());
     }
 
 /*
@@ -89,18 +93,5 @@ public class UsuarioService {
         }
         return ResponseEntity.ok().build();
     }
-
-
-/*
-        // Listar os Servicos do usuario:
-    public Usuario listarMeusServicos(@RequestBody UsuarioServicosDTO usuarioServicosDTO, @PathVariable Long id){
-        Optional<Usuario> usuario = usuarioRepository.findById(id);
-        List<UsuarioServicosDTO> usuarioServicosDTOList;
-        usuario = usuarioServicosDTO.converter(usuarioServicosDTOList);
-        return usuario.orElseThrow(() -> new ControllerNotFoundException(id));
-    }
-
-     */
-
 
 }

@@ -64,6 +64,7 @@ public class ServicoService {
     private void updateData(Servico servicoAtualizado, Servico servico) {
         servicoAtualizado.setTitulo(servico.getTitulo());
         servicoAtualizado.setDescricao(servico.getDescricao());
+        servicoAtualizado.setCategoria(servico.getCategoria());
         servicoAtualizado.setValor(servico.getValor());
     }
 

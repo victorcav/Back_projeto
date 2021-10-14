@@ -24,5 +24,4 @@ public interface ServicoRepository extends JpaRepository<Servico, Long> {
     @Query("select s from Servico s where s.usuario.id = :meuId")
     List<Servico> listarMeusServicos(@Param("meuId") Long meuId);
 
-
 }

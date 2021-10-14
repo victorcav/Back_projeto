@@ -2,7 +2,6 @@ package com.backendfindme.controllers;
 
 import com.backendfindme.controllers.dto.UsuarioDTO;
 import com.backendfindme.controllers.dto.UsuarioFORM;
-import com.backendfindme.controllers.dto.UsuarioServicosDTO;
 import com.backendfindme.models.Usuario;
 import com.backendfindme.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,22 +25,10 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Usuario> listarPorId(@PathVariable Long id){
+    public ResponseEntity<Usuario> listarMeusDados(@PathVariable Long id){
         Usuario usuario = usuarioService.listarPorId(id);
         return ResponseEntity.ok().body(usuario);
     }
-
-    /*
-
-
-        @GetMapping("/meusservicos/{id}")
-    public ResponseEntity<Usuario> listarMeusServicos(@RequestBody UsuarioServicosDTO usuarioFORM, @PathVariable Long id){
-        Usuario usuario = usuarioService.listarMeusServicos(id);
-        return ResponseEntity.ok().body(usuario);
-    }
-
-     */
-
 
     @PostMapping
     public ResponseEntity<UsuarioDTO> cadastrar(@RequestBody UsuarioFORM usuarioFORM){
