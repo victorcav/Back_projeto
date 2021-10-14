@@ -2,10 +2,7 @@ package com.backendfindme.controllers;
 
 import com.backendfindme.controllers.dto.ServicoDTO;
 import com.backendfindme.controllers.dto.ServicoFORM;
-import com.backendfindme.controllers.dto.UsuarioDTO;
-import com.backendfindme.controllers.dto.UsuarioFORM;
 import com.backendfindme.models.Servico;
-import com.backendfindme.models.Usuario;
 import com.backendfindme.services.ServicoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +20,8 @@ public class ServicoController {
     ServicoService servicoService;
 
     @GetMapping
-    public List<ServicoDTO> listar(){
-        return servicoService.listar();
+    public List<ServicoDTO> listar(String nomeCategoria){
+        return servicoService.listarPorCategoria(nomeCategoria);
     }
 
     @GetMapping("/{id}")
@@ -51,4 +48,14 @@ public class ServicoController {
         servicoService.delete(id);
         return ResponseEntity.noContent().build();
     }
+/*
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        servicoService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+ */
+
 }

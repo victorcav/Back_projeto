@@ -37,7 +37,7 @@ public class TransacaoServico {
     private int qtd_horas;
 
     @Column
-    private double valor;
+    private double valor_total;
 
     @Column
     private boolean utiliza_pontos;
