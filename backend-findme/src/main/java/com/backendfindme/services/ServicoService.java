@@ -37,6 +37,12 @@ public class ServicoService {
         return servico.orElseThrow(() -> new ControllerNotFoundException(id));
     }
 
+    // Listar Meus Servicos:
+        public List<ServicoDTO> listarMeusServicos(Long meuId){
+        List<Servico> servicoList = servicoRepository.listarMeusServicos(meuId);
+        return ServicoDTO.converter(servicoList);
+    }
+
     // Cadastrar Servico:
     public Servico cadastrar(@RequestBody ServicoFORM servicoFORM){
         Servico servico = servicoFORM.converter(servicoRepository);

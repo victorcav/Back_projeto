@@ -41,13 +41,15 @@ public class Servico {
     @Column
     private boolean situacao = true;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "servico")
     private List<TransacaoServico> transacaoServico= new ArrayList<>();
 
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario_prestador")
     private List<TransacaoServico> transacaoServicoPrestados = new ArrayList<>();
 
-    public Servico(String titulo, String descricao, String categoria,Usuario usuario, double valor) {
+    public Servico(String titulo, String descricao, String categoria, Usuario usuario, double valor) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.categoria = categoria;

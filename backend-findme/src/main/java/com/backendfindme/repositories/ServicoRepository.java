@@ -16,17 +16,13 @@ public interface ServicoRepository extends JpaRepository<Servico, Long> {
     @Query("select s from Servico s where categoria like %:nomeCategoria")
     List<Servico> filtrarPorCategoria(@Param("nomeCategoria") String nomeCategoria);
 
-/*
-
-    @Query("select s from Servico s where s.categoria = :nomeCategoria")
-    List<Servico> filtrarPorCategoria(@Param("nomeCategoria") String nomeCategoria);
-
- */
-
-
     @Transactional
     @Modifying
     @Query("update Servico u set u.situacao = false where u.id = :id")
     void alteraSituacao (@Param("id") Long id);
+
+    @Query("select s from Servico s where s.usuario.id = :meuId")
+    List<Servico> listarMeusServicos(@Param("meuId") Long meuId);
+
 
 }

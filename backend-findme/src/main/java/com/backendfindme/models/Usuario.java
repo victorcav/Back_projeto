@@ -58,11 +58,11 @@ public class Usuario {
     @Column
     private boolean situacao = true;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario")
     private List<Servico> servico = new ArrayList<>();
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario_contratante")
     private List<TransacaoServico> transacaoServicoContratados = new ArrayList<>();
 

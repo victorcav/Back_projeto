@@ -1,5 +1,6 @@
 package com.backendfindme.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,14 +19,17 @@ public class TransacaoServico {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_servico")
     private Servico servico;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="id_usuario_contratante")
     private Usuario usuario_contratante;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="id_usuario_prestador")
     private Servico usuario_prestador;
