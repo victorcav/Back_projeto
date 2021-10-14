@@ -1,5 +1,6 @@
 package com.backendfindme.controllers.dto;
 
+import com.backendfindme.models.Categoria;
 import com.backendfindme.models.Servico;
 import com.backendfindme.models.Usuario;
 import com.backendfindme.repositories.ServicoRepository;
@@ -27,7 +28,7 @@ public class ServicoFORM {
     @NotNull
     @NotEmpty
     @NotBlank
-    private String categoria;
+    private Categoria categoria;
 
     @NotNull
     @NotEmpty

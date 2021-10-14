@@ -14,7 +14,7 @@ public class ServicoDTO {
     private String titulo;
     private String descricao;
     private Usuario usuario;
-    private String categoria;
+    private Categoria categoria;
     private double valor;
 
     public ServicoDTO(Servico servico) {

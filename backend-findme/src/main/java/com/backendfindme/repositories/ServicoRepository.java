@@ -13,7 +13,7 @@ public interface ServicoRepository extends JpaRepository<Servico, Long> {
 
     List<Servico> findByCategoria(String nomeCategoria);
 
-    @Query("select s from Servico s where categoria like %:nomeCategoria")
+    @Query("select s from Servico s where s.categoria.nome like %:nomeCategoria")
     List<Servico> filtrarPorCategoria(@Param("nomeCategoria") String nomeCategoria);
 
     @Transactional

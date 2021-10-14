@@ -27,8 +27,10 @@ public class Servico {
     @Column
     private String descricao;
 
-    @Column
-    private String categoria;
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
 
     @JsonIgnore
     @ManyToOne
@@ -49,7 +51,7 @@ public class Servico {
     @OneToMany(mappedBy = "usuario_prestador")
     private List<TransacaoServico> transacaoServicoPrestados = new ArrayList<>();
 
-    public Servico(String titulo, String descricao, String categoria, Usuario usuario, double valor) {
+    public Servico(String titulo, String descricao, Categoria categoria, Usuario usuario, double valor) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.categoria = categoria;
